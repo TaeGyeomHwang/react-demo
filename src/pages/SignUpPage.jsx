@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import{
   LOGIN
 } from "../constants/page_constant";
+import Header from "../components/Header";
 
 export default function SignUpPage() {
 
@@ -43,6 +44,7 @@ export default function SignUpPage() {
 
   return (
     <>
+      <Header/>
       <form onSubmit={handleSignUp}>
         <TextField
           label="아이디"

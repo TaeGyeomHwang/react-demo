@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { MAIN, SIGN_UP } from "../constants/page_constant";
 import { LOGIN_API } from "../constants/api_constant";
+import Header from "../components/Header";
 
 export default function LoginPage() {
 
@@ -28,8 +29,11 @@ export default function LoginPage() {
         formData
       )
 
+      console.log(response.data);
+
       localStorage.setItem("access_token", response.data.accessToken);
       localStorage.setItem("refresh_token", response.data.refreshToken);
+      localStorage.setItem("authority", response.data.authority);
 
       navigate(MAIN);
     } catch (error) {
@@ -40,6 +44,7 @@ export default function LoginPage() {
 
   return (
     <>
+    <Header/>
       <form onSubmit={handleLogin}>
         <TextField
           label="아이디"
